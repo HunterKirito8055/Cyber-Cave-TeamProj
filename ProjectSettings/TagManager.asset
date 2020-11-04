@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - player
+  - Bullet
+  - FirePoint
+  - FireBullet
   layers:
   - Default
   - TransparentFX

@@ -6,25 +6,25 @@ public class PlayerMovement : MonoBehaviour
 {
     public float movespeed = 5f;
     public float JumpPower = 5f;
-    public float dashtime;
-   
+    // public float dashtime = 100f;
+
 
     private bool IsGrounded ;
-    
+    bool _facingRight = true;
+
     private Rigidbody2D rbody;
     private Animator anim;
 
 
     //DashVariables
 
-    public float dashSpeed;
+    public float dashSpeed = 15f;
     private bool isdashing;
-    public float startDashtime;
+    public float startDashtime = 0.25f;
     float currentDashtime;
     
 
    
-
     private void Awake()
     {
         rbody = GetComponent<Rigidbody2D>();
@@ -32,42 +32,33 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-
-    // Update is called once per frame
     void FixedUpdate()
     {
-
         Walk();
         dash();
-
     }
 
     private void Update()
     {
-        
-        Jump();
+        Jump(); 
     }
    
 
     //PlayerWalk
     void Walk()
     {
-       float h = Input.GetAxis("Horizontal");
-        
-        if (h > 0)
+       float h = Input.GetAxisRaw("Horizontal");       
+        if (h > 0 )
         {
-            rbody.velocity = new Vector2(movespeed, rbody.velocity.y); //move front
-            FaceDirection(1); //changedirection
-            
-
+            rbody.velocity = new Vector2(movespeed , rbody.velocity.y); //move front  
+            Flip(h); //changedirection  
         }
-        else if(h < 0)
+        else if(h < 0 )
         {
-            rbody.velocity = new Vector2(-movespeed, rbody.velocity.y); //move back
-            FaceDirection(-1); //changedirection 
-            
+            rbody.velocity = new Vector2(-movespeed , rbody.velocity.y); //move back
+            Flip(h); //changedirection    
         }
-        if(h == 0)
+       else 
         {
             rbody.velocity = new Vector2(0f, rbody.velocity.y);
         }
@@ -75,11 +66,18 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //which direction the player is facing
-    void FaceDirection(int face)
+    public void Flip( float dir)
     {
-        Vector2 dir = transform.localScale;
-        dir.x = face;
-        transform.localScale = dir;
+        Quaternion rot = transform.rotation;
+        if (dir <0)
+        {
+            rot.eulerAngles = new Vector3(0, 180, 0);
+        }
+        else if(dir>0)
+        {
+            rot.eulerAngles = new Vector3(0, 0, 0);
+        }
+        transform.rotation = rot;
     }
 
     // PlayerJump
@@ -103,8 +101,6 @@ public class PlayerMovement : MonoBehaviour
        float h = Input.GetAxis("Horizontal");
         if (Input.GetKeyDown(KeyCode.P))
         {
-
-            
             currentDashtime = startDashtime;
 
             if(h>0 || h < 0)
@@ -144,18 +140,9 @@ public class PlayerMovement : MonoBehaviour
                     anim.SetBool("Dash", false);
                 }
             }
-        }
-
-
-               
+        }        
     
     }
-
-   
-
-    
-   
-
 
     //Player collision for Jump
     private void OnCollisionEnter2D(Collision2D collision)
