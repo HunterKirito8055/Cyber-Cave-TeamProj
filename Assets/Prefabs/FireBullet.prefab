@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 6805668935849932822}
   - component: {fileID: 6805668935849932821}
   - component: {fileID: 6805668935849932823}
+  - component: {fileID: 1150555635546949749}
   - component: {fileID: 4128261193981964293}
   m_Layer: 0
   m_Name: FireBullet
@@ -235,6 +236,18 @@ CircleCollider2D:
   m_Offset: {x: 0.27, y: 0}
   serializedVersion: 2
   m_Radius: 0.28
+--- !u!114 &1150555635546949749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6805668935849932905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f7ad76184450534292405d49f08387b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4128261193981964293
 MonoBehaviour:
   m_ObjectHideFlags: 0

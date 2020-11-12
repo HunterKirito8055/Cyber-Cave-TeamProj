@@ -108,8 +108,6 @@ public class PlayerMovement : MonoBehaviour
                 isdashing = true;
                 anim.SetBool("Dash", true);
             }
-           
-
          }
 
 
