@@ -5,10 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - player
   - Bullet
   - FirePoint
   - FireBullet
+  - Deflection
   layers:
   - Default
   - TransparentFX
