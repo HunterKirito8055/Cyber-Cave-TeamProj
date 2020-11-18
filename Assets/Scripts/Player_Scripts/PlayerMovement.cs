@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum ComboSystem
+{
+    None,
+    Attack1,
+    Attack2,
+    Attack3
+};
 public class PlayerMovement : MonoBehaviour
 {
+   
     public float movespeed = 5f;
     public float JumpPower = 5f;
     // public float dashtime = 100f;
@@ -22,53 +29,122 @@ public class PlayerMovement : MonoBehaviour
     private bool isdashing;
     public float startDashtime = 0.25f;
     float currentDashtime;
-    
 
    
+    bool Attacking;
+    //Combo Variables
+    private ComboSystem Current_ComboState;
+    public float Default_Combo_Timer;
+    private float Current_Combo_Timer;
+    bool combo_reset;
+
+
     private void Awake()
     {
         rbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
+       
+    }
+    private void Start()
+    {
+        Current_ComboState = ComboSystem.None;
+        Current_Combo_Timer = Default_Combo_Timer;
     }
 
     void FixedUpdate()
     {
-        Walk();
+       
         dash();
     }
 
     private void Update()
     {
-<<<<<<< Updated upstream
-        Jump(); 
-=======
-        
-        Jump();
+         Jump();
+         Walk();
+         Combo();
+         ResetCombo();
        
->>>>>>> Stashed changes
+     
+
+
     }
-   
+    void Combo()
+    {
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (Current_ComboState == ComboSystem.Attack3)
+                return;
+            Attacking = true;
+            rbody.velocity = new Vector2(0f, rbody.velocity.y); //player should stop moving while attacking
+            Current_ComboState++;
+            combo_reset = true;
+            if (Current_ComboState == ComboSystem.Attack1)
+            {
+                anim.SetTrigger("PlayerAttack1");
+            }
+            if (Current_ComboState == ComboSystem.Attack2)
+            {
+                anim.SetTrigger("PlayerAttack2");
+            }
+            if (Current_ComboState == ComboSystem.Attack3)
+            {
+                anim.SetTrigger("PlayerAttack3");
+            }
+
+        }
+    }
+
+    private void ResetCombo()
+    {
+        if (combo_reset ) 
+        {
+            Current_Combo_Timer -= Time.deltaTime;
+            if(Current_Combo_Timer <= 0f)
+            {
+                Current_Combo_Timer = Default_Combo_Timer;
+                Current_ComboState = ComboSystem.None;
+                combo_reset = false;
+                Attacking = false;
+            }
+        }
+
+    }
 
     //PlayerWalk
     void Walk()
     {
-       float h = Input.GetAxisRaw("Horizontal");       
-        if (h > 0 )
+        
+            float h = Input.GetAxisRaw("Horizontal");
+
+        if (h != 0)
         {
-            rbody.velocity = new Vector2(movespeed , rbody.velocity.y); //move front  
-            Flip(h); //changedirection  
+            
+            if (!Attacking)
+            {
+                if (h > 0)
+                {
+                    rbody.velocity = new Vector2(movespeed, rbody.velocity.y); //move front  
+                    Flip(h); //changedirection  
+                }
+                else if (h < 0)
+                {
+
+                    rbody.velocity = new Vector2(-movespeed, rbody.velocity.y); //move back
+                    Flip(h); //changedirection    
+                }
+               
+            }
+
         }
-        else if(h < 0 )
-        {
-            rbody.velocity = new Vector2(-movespeed , rbody.velocity.y); //move back
-            Flip(h); //changedirection    
-        }
-       else 
+        else
         {
             rbody.velocity = new Vector2(0f, rbody.velocity.y);
         }
         anim.SetInteger("Speed", Mathf.Abs((int)rbody.velocity.x));
+
+
+
     }
 
     //which direction the player is facing
@@ -148,15 +224,7 @@ public class PlayerMovement : MonoBehaviour
     
     }
 
-<<<<<<< Updated upstream
-=======
-     
 
-    
-   
-
-
->>>>>>> Stashed changes
     //Player collision for Jump
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -165,4 +233,5 @@ public class PlayerMovement : MonoBehaviour
             IsGrounded = true;
         }
     }
+    
 }
