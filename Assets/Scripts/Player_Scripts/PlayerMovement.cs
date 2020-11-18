@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        
+
     }
 
     void FixedUpdate()
@@ -40,7 +40,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+<<<<<<< Updated upstream
         Jump(); 
+=======
+        
+        Jump();
+       
+>>>>>>> Stashed changes
     }
    
 
@@ -142,6 +148,15 @@ public class PlayerMovement : MonoBehaviour
     
     }
 
+<<<<<<< Updated upstream
+=======
+     
+
+    
+   
+
+
+>>>>>>> Stashed changes
     //Player collision for Jump
     private void OnCollisionEnter2D(Collision2D collision)
     {
