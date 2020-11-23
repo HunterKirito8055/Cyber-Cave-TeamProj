@@ -997,8 +997,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - {fileID: 1698797383}
-  choke: 0
-  scrollSpeed: 1.8
+  chokeStitching: 0
+  scrollSpeed: 25
+  smoothTime: 0.25
 --- !u!1 &1367728769
 GameObject:
   m_ObjectHideFlags: 0

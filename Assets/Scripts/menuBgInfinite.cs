@@ -8,8 +8,12 @@ public class menuBgInfinite : MonoBehaviour
     public GameObject[] levels;
     private Camera mainCamera;
     private Vector2 screenBounds;
-    public float choke;
+    public float chokeStitching;
+    [Range(5,25)]
     public float scrollSpeed;
+
+    [Range(0.1f,0.5f)]
+    public float smoothTime = 0.25f;
 
     void Start()
     {
@@ -22,7 +26,7 @@ public class menuBgInfinite : MonoBehaviour
     }
     void loadChildObjects(GameObject obj)
     {
-        float objectWidth = obj.GetComponent<SpriteRenderer>().bounds.size.x - choke;
+        float objectWidth = obj.GetComponent<SpriteRenderer>().bounds.size.x - chokeStitching;
         int childsNeeded = (int)Mathf.Ceil(screenBounds.x * 2 / objectWidth);
         GameObject clone = Instantiate(obj) as GameObject;
         for (int i = 0; i <= childsNeeded; i++)
@@ -42,7 +46,7 @@ public class menuBgInfinite : MonoBehaviour
         {
             GameObject firstChild = children[1].gameObject;
             GameObject lastChild = children[children.Length - 1].gameObject;
-            float halfObjectWidth = lastChild.GetComponent<SpriteRenderer>().bounds.extents.x - choke;
+            float halfObjectWidth = lastChild.GetComponent<SpriteRenderer>().bounds.extents.x - chokeStitching;
             if (transform.position.x + screenBounds.x > lastChild.transform.position.x + halfObjectWidth)
             {
                 firstChild.transform.SetAsLastSibling();
@@ -59,9 +63,9 @@ public class menuBgInfinite : MonoBehaviour
     {
 
         Vector3 velocity = Vector3.zero;
-        Vector3 desiredPosition = transform.position + new Vector3(scrollSpeed, 0, 0);
-        Vector3 smoothPosition = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, 0.3f);
-        transform.position = smoothPosition;
+        Vector3 desiredPosition = transform.position + new Vector3(scrollSpeed , 0, 0);
+        Vector3 smoothPosition = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothTime);
+        transform.position = smoothPosition  ;
 
     }
     void LateUpdate()
