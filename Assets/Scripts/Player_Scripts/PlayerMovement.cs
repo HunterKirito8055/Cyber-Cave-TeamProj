@@ -228,7 +228,7 @@ public class PlayerMovement : MonoBehaviour
     //Player collision for Jump
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Ground")
+        if (collision.gameObject.tag == "Ground")
         {
             IsGrounded = true;
         }
