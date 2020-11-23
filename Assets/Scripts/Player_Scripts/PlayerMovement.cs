@@ -125,13 +125,13 @@ public class PlayerMovement : MonoBehaviour
                 if (h > 0)
                 {
                     rbody.velocity = new Vector2(movespeed, rbody.velocity.y); //move front  
-                    Flip(h); //changedirection  
+                    Flip(gameObject, h); //changedirection  
                 }
                 else if (h < 0)
                 {
 
                     rbody.velocity = new Vector2(-movespeed, rbody.velocity.y); //move back
-                    Flip(h); //changedirection    
+                    Flip(gameObject,h); //changedirection    
                 }
                
             }
@@ -148,9 +148,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //which direction the player is facing
-    public void Flip( float dir)
+    public void Flip(GameObject go, float dir)
     {
-        Quaternion rot = transform.rotation;
+        Quaternion rot = go.transform.rotation;
         if (dir <0)
         {
             rot.eulerAngles = new Vector3(0, 180, 0);
@@ -159,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rot.eulerAngles = new Vector3(0, 0, 0);
         }
-        transform.rotation = rot;
+         go.transform.rotation = rot;
     }
 
     // PlayerJump
