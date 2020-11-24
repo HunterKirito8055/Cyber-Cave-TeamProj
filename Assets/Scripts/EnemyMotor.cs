@@ -46,7 +46,6 @@ public class EnemyMotor : MonoBehaviour
     }
     private void Awake()
     {
-
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
     }

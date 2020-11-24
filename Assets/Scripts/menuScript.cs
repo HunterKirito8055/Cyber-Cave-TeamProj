@@ -7,6 +7,6 @@ public class menuScript : MonoBehaviour
 {
     public void buttonPlay()
     {
-        SceneManager.LoadScene("prototypeScene");
+        SceneManager.LoadScene(1);
     }
 }
