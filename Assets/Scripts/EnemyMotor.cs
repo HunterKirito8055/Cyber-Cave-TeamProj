@@ -129,7 +129,7 @@ public class EnemyMotor : MonoBehaviour
 
     void FollowPlayer()
     {
-        chase_distance = Vector2.Distance(playerTarget.position, new Vector2(LeftMaxPos,RightMaxPos));
+        chase_distance = Vector2.Distance(playerTarget.position, transform.position);
         print("chase dis");
         Debug.Log(chase_distance);
         
@@ -147,13 +147,17 @@ public class EnemyMotor : MonoBehaviour
                     playmovementScript.Flip(gameObject, 1);
                     rigid.velocity = Vector2.right * MoveSpeed;
                 }
-                else
+                else if( playerTarget.position.x < transform.position.x -attack_Distance)
                 {                 
                     playmovementScript.Flip(gameObject, -1);
                     rigid.velocity = -Vector2.right * MoveSpeed;
                 }
+                else if(chase_distance < attack_Distance)
+                {
+                    rigid.velocity = new Vector2(0, rigid.velocity.y);
+                }
             }
-            if(chase_distance > transform.position.x + 5)
+            if(chase_distance > (RightMaxPos - LeftMaxPos) + 3)
             {
                 _isfollowPlayer = false;
                 LeftMaxPos = transform.position.x - OffsetToLeft;

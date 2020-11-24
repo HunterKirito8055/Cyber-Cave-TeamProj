@@ -998,7 +998,7 @@ MonoBehaviour:
   levels:
   - {fileID: 1698797383}
   chokeStitching: 0
-  scrollSpeed: 25
+  scrollSpeed: 22.3
   smoothTime: 0.25
 --- !u!1 &1367728769
 GameObject:
