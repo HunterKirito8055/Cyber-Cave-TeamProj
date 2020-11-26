@@ -129,8 +129,8 @@ public class EnemyMotor : MonoBehaviour
     void FollowPlayer()
     {
         chase_distance = Vector2.Distance(playerTarget.position, transform.position);
-        print("chase dis");
-        Debug.Log(chase_distance);
+       //print("chase dis");
+    //    Debug.Log(chase_distance);
         
         if (!_isfollowPlayer) //if not following the player, then what to do here?
         {

@@ -11,6 +11,9 @@ TagManager:
   - Deflection
   - Enemy
   - Hands
+  - enemyObj
+  - collectibleHealth
+  - sword
   layers:
   - Default
   - TransparentFX

@@ -192,12 +192,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 5
-  OffsetToRight: 3
-  OffsetToLeft: 3
+  OffsetToRight: 2
+  OffsetToLeft: 2
   Hands: {fileID: 1536518508817386252}
   isMoveRight: 1
   playerTarget: {fileID: 0}
-  attack_Distance: 1
+  attack_Distance: 1.5
   chase_distance: 0
   _isfollowPlayer: 0
   _attackPlayer: 0
@@ -217,10 +217,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c4b9a4e5ac66c24992831468795717e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerattack: {fileID: 0}
   movespeed: 5
   JumpPower: 8
   dashSpeed: 15
   startDashtime: 0.25
+  Attacking: 0
   Default_Combo_Timer: 0.6
 --- !u!114 &1460080130067178448
 MonoBehaviour:

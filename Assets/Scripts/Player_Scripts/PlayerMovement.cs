@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public enum ComboSystem
 {
     None,
@@ -10,12 +11,12 @@ public enum ComboSystem
 };
 public class PlayerMovement : MonoBehaviour
 {
-   
+    public PlayerAttack playerattack;
     public float movespeed = 5f;
     public float JumpPower = 5f;
     // public float dashtime = 100f;
 
-
+    
     private bool IsGrounded ;
     bool _facingRight = true;
 
@@ -31,18 +32,20 @@ public class PlayerMovement : MonoBehaviour
     float currentDashtime;
 
    
-    bool Attacking;
+    public bool Attacking;
+    public bool swordattack;
     //Combo Variables
     private ComboSystem Current_ComboState;
     public float Default_Combo_Timer;
     private float Current_Combo_Timer;
     bool combo_reset;
-
-
+   
+    
     private void Awake()
     {
         rbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        playerattack = GetComponentInChildren<PlayerAttack>();
        
     }
     private void Start()
@@ -63,8 +66,6 @@ public class PlayerMovement : MonoBehaviour
          Walk();
          Combo();
          ResetCombo();
-       
-     
 
 
     }
@@ -73,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0))
         {
+            swordattack = true;
             if (Current_ComboState == ComboSystem.Attack3)
                 return;
             Attacking = true;
@@ -82,14 +84,20 @@ public class PlayerMovement : MonoBehaviour
             if (Current_ComboState == ComboSystem.Attack1)
             {
                 anim.SetTrigger("PlayerAttack1");
+               
+                
             }
             if (Current_ComboState == ComboSystem.Attack2)
             {
                 anim.SetTrigger("PlayerAttack2");
+                
+
             }
             if (Current_ComboState == ComboSystem.Attack3)
             {
                 anim.SetTrigger("PlayerAttack3");
+                
+
             }
 
         }
@@ -97,9 +105,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void ResetCombo()
     {
-        if (combo_reset ) 
+        if (combo_reset) 
         {
-            Current_Combo_Timer -= Time.deltaTime;
+            Current_Combo_Timer -= Time.deltaTime ;
             if(Current_Combo_Timer <= 0f)
             {
                 Current_Combo_Timer = Default_Combo_Timer;
@@ -107,7 +115,13 @@ public class PlayerMovement : MonoBehaviour
                 combo_reset = false;
                 Attacking = false;
             }
+            
         }
+
+        
+        
+
+
 
     }
 
@@ -232,6 +246,7 @@ public class PlayerMovement : MonoBehaviour
         {
             IsGrounded = true;
         }
+        
     }
     
 }
