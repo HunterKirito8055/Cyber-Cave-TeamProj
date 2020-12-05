@@ -9,10 +9,10 @@ public class menuBgInfinite : MonoBehaviour
     private Camera mainCamera;
     private Vector2 screenBounds;
     public float chokeStitching;
-    [Range(5,25)]
+    [Range(5, 25)]
     public float scrollSpeed;
 
-    [Range(0.1f,0.5f)]
+    [Range(0.1f, 0.5f)]
     public float smoothTime = 0.25f;
 
     void Start()
@@ -63,9 +63,9 @@ public class menuBgInfinite : MonoBehaviour
     {
 
         Vector3 velocity = Vector3.zero;
-        Vector3 desiredPosition = transform.position + new Vector3(scrollSpeed , 0, 0);
+        Vector3 desiredPosition = transform.position + new Vector3(scrollSpeed, 0, 0);
         Vector3 smoothPosition = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothTime);
-        transform.position = smoothPosition  ;
+        transform.position = smoothPosition;
 
     }
     void LateUpdate()

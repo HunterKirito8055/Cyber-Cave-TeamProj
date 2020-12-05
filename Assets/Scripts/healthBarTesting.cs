@@ -13,7 +13,7 @@ public class healthBarTesting : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.gameObject.tag=="player")
+        if (collision.collider.gameObject.tag == "player")
         {
             Debug.Log("player");
             hb.setBarSize(attackStrength);

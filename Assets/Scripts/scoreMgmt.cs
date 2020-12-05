@@ -18,8 +18,8 @@ public class scoreMgmt : MonoBehaviour
         if (collision.collider.gameObject.tag == "enemyObj")
         {
             Debug.Log("player");
-            if(hb.healthBarTransform.localScale.x > 0.01f)
-            hb.setBarSize(attackStrength);
+            if (hb.healthBarTransform.localScale.x > 0.01f)
+                hb.setBarSize(attackStrength);
             collision.collider.gameObject.SetActive(false);
         }
 
@@ -28,7 +28,7 @@ public class scoreMgmt : MonoBehaviour
         {
             Debug.Log("player");
             if (hb.healthBarTransform.localScale.x < 1.0f)
-            hb.setBarSize(-0.2f);
+                hb.setBarSize(-0.2f);
             collision.collider.gameObject.SetActive(false);
         }
 

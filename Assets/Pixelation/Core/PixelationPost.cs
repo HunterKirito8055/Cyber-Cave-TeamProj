@@ -6,7 +6,7 @@ public class PixelationPost : MonoBehaviour
 {
     public Shader _shader;
 
-	[Range(0.0001f, 100.0f)]
+    [Range(0.0001f, 100.0f)]
     public float _cellSize = 0.025f;
 
     [Range(0, 8)]
@@ -21,7 +21,7 @@ public class PixelationPost : MonoBehaviour
             if (mat == null)
             {
                 mat = new Material(_shader);
-				mat.hideFlags = HideFlags.HideAndDontSave;
+                mat.hideFlags = HideFlags.HideAndDontSave;
             }
             return mat;
         }
@@ -29,10 +29,10 @@ public class PixelationPost : MonoBehaviour
 
     void OnRenderImage(RenderTexture src, RenderTexture dest)
     {
-		if (_shader == null)
-		{
-			return;
-		}
+        if (_shader == null)
+        {
+            return;
+        }
         material.SetFloat("_CellSize", _cellSize * 0.01f);
         material.SetFloat("_ColorBits", _colorBits);
         Graphics.Blit(src, dest, material);

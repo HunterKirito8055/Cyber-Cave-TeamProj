@@ -16,9 +16,9 @@ public class PlayerMovement : MonoBehaviour
     public float JumpPower = 5f;
     // public float dashtime = 100f;
 
-    
-    private bool IsGrounded ;
-    bool _facingRight = true;
+
+    private bool IsGrounded;
+    // bool _facingRight = true;
 
     private Rigidbody2D rbody;
     private Animator anim;
@@ -31,22 +31,22 @@ public class PlayerMovement : MonoBehaviour
     public float startDashtime = 0.25f;
     float currentDashtime;
 
-   
+
     public bool Attacking;
     public bool swordattack;
     //Combo Variables
     private ComboSystem Current_ComboState;
-    public float Default_Combo_Timer;
+    public float Default_Combo_Timer = 0.6f;
     private float Current_Combo_Timer;
     bool combo_reset;
-   
-    
+
+
     private void Awake()
     {
         rbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerattack = GetComponentInChildren<PlayerAttack>();
-       
+
     }
     private void Start()
     {
@@ -56,22 +56,22 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-       
+
         dash();
     }
 
     private void Update()
     {
-         Jump();
-         Walk();
-         Combo();
-         ResetCombo();
+        Jump();
+        Walk();
+        ComboAttack();
+        ResetCombo();
 
 
     }
-    void Combo()
+    void ComboAttack()
     {
-        
+
         if (Input.GetMouseButtonDown(0))
         {
             swordattack = true;
@@ -84,19 +84,18 @@ public class PlayerMovement : MonoBehaviour
             if (Current_ComboState == ComboSystem.Attack1)
             {
                 anim.SetTrigger("PlayerAttack1");
-               
-                
+
             }
             if (Current_ComboState == ComboSystem.Attack2)
             {
                 anim.SetTrigger("PlayerAttack2");
-                
+
 
             }
             if (Current_ComboState == ComboSystem.Attack3)
             {
                 anim.SetTrigger("PlayerAttack3");
-                
+
 
             }
 
@@ -105,21 +104,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void ResetCombo()
     {
-        if (combo_reset) 
+        if (combo_reset)
         {
-            Current_Combo_Timer -= Time.deltaTime ;
-            if(Current_Combo_Timer <= 0f)
+            Current_Combo_Timer -= Time.deltaTime;
+            if (Current_Combo_Timer <= 0f)
             {
                 Current_Combo_Timer = Default_Combo_Timer;
                 Current_ComboState = ComboSystem.None;
                 combo_reset = false;
                 Attacking = false;
             }
-            
+
         }
 
-        
-        
+
+
 
 
 
@@ -128,12 +127,11 @@ public class PlayerMovement : MonoBehaviour
     //PlayerWalk
     void Walk()
     {
-        
-            float h = Input.GetAxisRaw("Horizontal");
+        float h = Input.GetAxisRaw("Horizontal");
 
         if (h != 0)
         {
-            
+
             if (!Attacking)
             {
                 if (h > 0)
@@ -145,9 +143,9 @@ public class PlayerMovement : MonoBehaviour
                 {
 
                     rbody.velocity = new Vector2(-movespeed, rbody.velocity.y); //move back
-                    Flip(gameObject,h); //changedirection    
+                    Flip(gameObject, h); //changedirection    
                 }
-               
+
             }
 
         }
@@ -165,15 +163,15 @@ public class PlayerMovement : MonoBehaviour
     public void Flip(GameObject go, float dir)
     {
         Quaternion rot = go.transform.rotation;
-        if (dir <0)
+        if (dir < 0)
         {
             rot.eulerAngles = new Vector3(0, 180, 0);
         }
-        else if(dir>0)
+        else if (dir > 0)
         {
             rot.eulerAngles = new Vector3(0, 0, 0);
         }
-         go.transform.rotation = rot;
+        go.transform.rotation = rot;
     }
 
     // PlayerJump
@@ -185,7 +183,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space)) //player jump
             {
-                IsGrounded = false; 
+                IsGrounded = false;
                 rbody.velocity = new Vector2(rbody.velocity.x, JumpPower);
                 anim.SetBool("Jump", true);
             }
@@ -194,25 +192,25 @@ public class PlayerMovement : MonoBehaviour
 
     void dash()
     {
-       float h = Input.GetAxis("Horizontal");
+        float h = Input.GetAxis("Horizontal");
         if (Input.GetKeyDown(KeyCode.P))
         {
             currentDashtime = startDashtime;
 
-            if(h>0 || h < 0)
+            if (h > 0 || h < 0)
             {
                 isdashing = true;
                 anim.SetBool("Dash", true);
             }
-         }
+        }
 
 
         if (isdashing)
         {
-            
+
             if (h > 0)
             {
-               
+
                 rbody.velocity = Vector2.right * dashSpeed;
                 currentDashtime -= Time.deltaTime;
                 if (currentDashtime <= 0)
@@ -223,9 +221,9 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (h < 0)
             {
-                
+
                 rbody.velocity = Vector2.left * dashSpeed;
-                
+
 
                 currentDashtime -= Time.deltaTime;
                 if (currentDashtime <= 0)
@@ -234,8 +232,8 @@ public class PlayerMovement : MonoBehaviour
                     anim.SetBool("Dash", false);
                 }
             }
-        }        
-    
+        }
+
     }
 
 
@@ -246,7 +244,7 @@ public class PlayerMovement : MonoBehaviour
         {
             IsGrounded = true;
         }
-        
+
     }
-    
+
 }

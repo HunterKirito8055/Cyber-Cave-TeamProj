@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1460080130067178450}
   - component: {fileID: 1460080130067178448}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy Sniper
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,6 +194,8 @@ MonoBehaviour:
   MoveSpeed: 5
   OffsetToRight: 2
   OffsetToLeft: 2
+  downMinPos: 1
+  upMaxPos: 2
   Hands: {fileID: 1536518508817386252}
   isMoveRight: 1
   playerTarget: {fileID: 0}
@@ -223,6 +225,7 @@ MonoBehaviour:
   dashSpeed: 15
   startDashtime: 0.25
   Attacking: 0
+  swordattack: 0
   Default_Combo_Timer: 0.6
 --- !u!114 &1460080130067178448
 MonoBehaviour:
@@ -254,7 +257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6283114698579753068
 Transform:
   m_ObjectHideFlags: 0

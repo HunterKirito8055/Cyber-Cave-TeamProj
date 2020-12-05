@@ -7,17 +7,17 @@ public class BulletPrefab : MonoBehaviour
     public Transform firepoint;
     public GameObject fireprefab;
 
-   
+
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B))
         {
             Shoot();
         }
     }
-   void Shoot()
+    void Shoot()
     {
-        Instantiate(fireprefab, firepoint.position, firepoint.rotation); 
+        Instantiate(fireprefab, firepoint.position, firepoint.rotation);
     }
 }

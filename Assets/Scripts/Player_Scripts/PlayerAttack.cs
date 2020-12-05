@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour
 {
-    
+
     public PlayerMovement player;
     public Text Combohit;
     public GameObject ComboObj;
@@ -18,7 +18,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Awake()
     {
-        
+
         player = GetComponentInParent<PlayerMovement>();
 
     }
@@ -37,7 +37,7 @@ public class PlayerAttack : MonoBehaviour
             ComboObj.SetActive(true);
         }
 
-        if(ComboHasToReset) //UICombo has to reset and disappear
+        if (ComboHasToReset) //UICombo has to reset and disappear
         {
 
             combo_attack_ResetTimer -= Time.deltaTime * 2f;
@@ -58,12 +58,12 @@ public class PlayerAttack : MonoBehaviour
     {
         if (other.tag == "Enemy" && player.swordattack)
         {
-            
-                print("player attacked");
-                combohits++;
-                ComboHasToReset = false;
-                combo_attack_ResetTimer = _Defaultcombo_attack_ResetTimer;
-            
+
+            print("player attacked");
+            combohits++;
+            ComboHasToReset = false;
+            combo_attack_ResetTimer = _Defaultcombo_attack_ResetTimer;
+
         }
     }
 

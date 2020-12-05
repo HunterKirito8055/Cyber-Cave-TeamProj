@@ -14,7 +14,7 @@ public class BulletDeflect : MonoBehaviour
     }
     private void Start()
     {
-        if(cc2d.isTrigger.Equals(false))
+        if (cc2d.isTrigger.Equals(false))
         {
             //cc2d.isTrigger = true;
         }
@@ -22,11 +22,11 @@ public class BulletDeflect : MonoBehaviour
     private void Update()
     {
         lastvel = rb.velocity;
-        
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -37,7 +37,7 @@ public class BulletDeflect : MonoBehaviour
             var speed = lastvel.magnitude;
             var direction = Vector3.Reflect(lastvel.normalized, collision.contacts[0].normal);
             rb.velocity = direction * Mathf.Max(speed, 0f);
-            
+
         }
         else
         {

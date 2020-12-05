@@ -29,7 +29,7 @@ public class Test : MonoBehaviour
 
     void Update()
     {
-       // body.velocity = Vector2.zero;
+        // body.velocity = Vector2.zero;
         //if (Input.GetKey(KeyCode.DownArrow))
         //{
         //    dashDirection = DashDirection.Down;
