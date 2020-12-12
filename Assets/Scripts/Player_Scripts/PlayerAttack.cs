@@ -12,7 +12,7 @@ public class PlayerAttack : MonoBehaviour
 
     public int combohits = 0;
     public float combo_attack_ResetTimer;
-    public float _Defaultcombo_attack_ResetTimer = 0.5f;
+    public float _Defaultcombo_attack_ResetTimer = 0.6f;
 
     public bool ComboHasToReset;
 
