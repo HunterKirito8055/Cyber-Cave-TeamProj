@@ -98,12 +98,12 @@ GameObject:
   - component: {fileID: 1150555635546949749}
   - component: {fileID: 4128261193981964293}
   m_Layer: 0
-  m_Name: FireBullet
+  m_Name: FireBullet( dont ddelete this)
   m_TagString: FireBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6805668935849932820
 Transform:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6805668935849932905}
   m_LocalRotation: {x: 0, y: 0.029203929, z: 0, w: 0.99957347}
-  m_LocalPosition: {x: -1.189, y: 0.12, z: -3.677899}
+  m_LocalPosition: {x: 0, y: 0, z: -3.677899}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6805668934542230231}
