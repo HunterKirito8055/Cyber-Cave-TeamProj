@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrefabAction : MonoBehaviour
+public class PlayerBulletAction : MonoBehaviour
 {
     public float speed = 10f;
     public Rigidbody2D rb;

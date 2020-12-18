@@ -32,17 +32,6 @@ public class EnemyMotor : MonoBehaviour
 
     public Transform GroundDetect;
     public LayerMask GroundLayer;
-
-
-    public enum Enemy_Attack
-    {
-        None,
-        Melee1,
-        Melee2,
-        Melee3,
-        AirRocks
-    }//enum enemy
-
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -165,6 +154,7 @@ public class EnemyMotor : MonoBehaviour
                         //attack the player
                         _attackPlayer = true;
                         EnemyAttackMelee();
+                   //////
                     }
                 //}//checking for Y-Height, as we dont want enemy to chase even if player is at some height
                 #endregion 
@@ -184,15 +174,18 @@ public class EnemyMotor : MonoBehaviour
     {
 
     }
-
-
     void EnemyAttackMelee()
     {
         if (rigid.velocity.sqrMagnitude == 0)
         {
             anim.SetTrigger("EnemyMelee");
         }
+        else
+            _attackPlayer = false;
     }//melee attack enemy'
 
+    void EnemyLaserAttack()
+    {
 
+    }
 }//class
