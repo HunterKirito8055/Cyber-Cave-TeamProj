@@ -7,10 +7,12 @@ public class BulletDeflect : MonoBehaviour
     Rigidbody2D rb;
     Vector3 lastvel;
     CircleCollider2D cc2d;
+    CapsuleCollider2D capsuleC2dd;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         cc2d = GetComponent<CircleCollider2D>();
+        capsuleC2dd = GetComponent<CapsuleCollider2D>();
     }
     private void Start()
     {
@@ -34,6 +36,7 @@ public class BulletDeflect : MonoBehaviour
         {
             Debug.Log(collision.gameObject.tag);
             cc2d.isTrigger = false;
+            capsuleC2dd.isTrigger = false;
             var speed = lastvel.magnitude;
             var direction = Vector3.Reflect(lastvel.normalized, collision.contacts[0].normal);
             rb.velocity = direction * Mathf.Max(speed, 0f);
@@ -42,6 +45,7 @@ public class BulletDeflect : MonoBehaviour
         else
         {
             cc2d.isTrigger = true;
+            capsuleC2dd.isTrigger = true;
         }
     }
 }

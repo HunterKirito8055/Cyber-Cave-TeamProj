@@ -44,10 +44,8 @@ GameObject:
   - component: {fileID: 1460080130067178451}
   - component: {fileID: 1460080130067178449}
   - component: {fileID: 4120239462426929510}
-  - component: {fileID: 1460080130067178450}
-  - component: {fileID: 1460080130067178448}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy Melee
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,6 +192,8 @@ MonoBehaviour:
   MoveSpeed: 5
   OffsetToRight: 2
   OffsetToLeft: 2
+  downMinPos: 1
+  upMaxPos: 2
   Hands: {fileID: 1536518508817386252}
   isMoveRight: 1
   playerTarget: {fileID: 0}
@@ -205,41 +205,6 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 256
---- !u!114 &1460080130067178450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1460080130067178463}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c4b9a4e5ac66c24992831468795717e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerattack: {fileID: 0}
-  movespeed: 5
-  JumpPower: 8
-  dashSpeed: 15
-  startDashtime: 0.25
-  Attacking: 0
-  swordattack: 0
-  Default_Combo_Timer: 0.6
---- !u!114 &1460080130067178448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1460080130067178463}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1b90ec0c8d169f45bc583c374d031af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firepoint: {fileID: 1460080128495530823}
-  fireprefab: {fileID: 6805668935849932905, guid: afae105cbd06ddf49b76092da4c7d787,
-    type: 3}
 --- !u!1 &1536518508817386252
 GameObject:
   m_ObjectHideFlags: 0
