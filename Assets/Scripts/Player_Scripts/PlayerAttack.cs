@@ -30,8 +30,6 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Combohit.text = combohits.ToString();
-
         if (combohits > 0) //combogameobject should be active if the combo is greater than 0
         {
             ComboObj.SetActive(true);
@@ -53,6 +51,7 @@ public class PlayerAttack : MonoBehaviour
         {
             print("ashish");
         }
+        Combohit.text = combohits.ToString();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
