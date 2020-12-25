@@ -297,7 +297,7 @@ Camera:
   serializedVersion: 2
   m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
-  m_projectionMatrixMode: 0
+  m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
@@ -340,7 +340,7 @@ Camera:
   serializedVersion: 2
   m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
-  m_projectionMatrixMode: 0
+  m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
@@ -700,8 +700,13 @@ PrefabInstance:
     - target: {fileID: 1460080130067178463, guid: 604472c21b0f4b345859bf3dd6ca7ecc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4120239462426929510, guid: 604472c21b0f4b345859bf3dd6ca7ecc,
+        type: 3}
+      propertyPath: playerTarget
+      value: 
+      objectReference: {fileID: 1312282281}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 604472c21b0f4b345859bf3dd6ca7ecc, type: 3}
 --- !u!1 &662037423
@@ -822,6 +827,10 @@ PrefabInstance:
     - target: {fileID: 1373197249, guid: 35b1ca56d3aa38041a92393528bffbae, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373197252, guid: 35b1ca56d3aa38041a92393528bffbae, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1788220973313872541, guid: 35b1ca56d3aa38041a92393528bffbae,
         type: 3}
@@ -1199,7 +1208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1305280277
 Transform:
   m_ObjectHideFlags: 0
@@ -1384,7 +1393,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312282278}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 580ef2f0fa4399d4f899b36b484055b7, type: 3}
   m_Name: 
