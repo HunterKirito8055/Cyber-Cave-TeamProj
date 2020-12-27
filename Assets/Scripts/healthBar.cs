@@ -11,6 +11,7 @@ public class healthBar : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
         healthBarTransform = GameObject.Find("healthBarMain").GetComponent<Transform>();
         hbMaterial = this.GetComponent<Renderer>();
 
