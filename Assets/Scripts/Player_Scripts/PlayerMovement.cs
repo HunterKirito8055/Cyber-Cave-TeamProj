@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public float movespeed = 5f;
     public float JumpPower = 5f;
     // public float dashtime = 100f;
-
+    public GameObject hitobj;
 
     private bool IsGrounded;
     // bool _facingRight = true;
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     public bool Attacking;
-    public bool swordattack;
+    
     //Combo Variables
     private ComboSystem Current_ComboState;
     public float Default_Combo_Timer = 0.6f;
@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            swordattack = true;
+            
             if (Current_ComboState == ComboSystem.Attack3)
                 return;
             Attacking = true;
@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
             if (Current_ComboState == ComboSystem.Attack3)
             {
                 anim.SetTrigger("PlayerAttack3");
-
+             
 
             }
 
@@ -162,6 +162,7 @@ public class PlayerMovement : MonoBehaviour
     //which direction the player is facing
     public void Flip(GameObject go, float dir)
     {
+      
         Quaternion rot = go.transform.rotation;
         if (dir < 0)
         {
@@ -173,20 +174,23 @@ public class PlayerMovement : MonoBehaviour
         }
         go.transform.rotation = rot;
     }
-
+    bool isJump;
     // PlayerJump
     void Jump()
     {
         if (IsGrounded)
         {
-            anim.SetBool("Jump", false); //player is on land
 
+            anim.SetBool("Jump", false); //player is on land
             if (Input.GetKeyDown(KeyCode.Space)) //player jump
             {
                 IsGrounded = false;
                 rbody.velocity = new Vector2(rbody.velocity.x, JumpPower);
                 anim.SetBool("Jump", true);
+                
+           
             }
+      
         }
     }
 
@@ -246,5 +250,15 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-
+  
+    public void HitObjectOn()
+    {
+        hitobj.SetActive(true);
+        print("hit");
+    }
+    public void HitObjectOff()
+    {
+        print("off");
+        hitobj.SetActive(false);
+    }
 }

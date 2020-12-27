@@ -9,12 +9,14 @@ public class PlayerAttack : MonoBehaviour
     public PlayerMovement player;
     public Text Combohit;
     public GameObject ComboObj;
-
+   
     public int combohits = 0;
     public float combo_attack_ResetTimer;
     public float _Defaultcombo_attack_ResetTimer = 0.6f;
 
     public bool ComboHasToReset;
+
+
 
     private void Awake()
     {
@@ -30,8 +32,6 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Combohit.text = combohits.ToString();
-
         if (combohits > 0) //combogameobject should be active if the combo is greater than 0
         {
             ComboObj.SetActive(true);
@@ -53,16 +53,18 @@ public class PlayerAttack : MonoBehaviour
         {
             print("ashish");
         }
+        Combohit.text = combohits.ToString();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Enemy" && player.swordattack)
+        if (other.tag == "Enemy")
         {
 
             print("player attacked");
             combohits++;
-            ComboHasToReset = false;
+            
             combo_attack_ResetTimer = _Defaultcombo_attack_ResetTimer;
+            ComboHasToReset = false;
 
         }
     }
@@ -71,8 +73,8 @@ public class PlayerAttack : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            player.swordattack = false;
             ComboHasToReset = true;
         }
     }
+   
 }
