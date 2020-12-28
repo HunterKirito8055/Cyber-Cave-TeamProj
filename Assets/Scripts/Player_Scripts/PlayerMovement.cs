@@ -174,20 +174,23 @@ public class PlayerMovement : MonoBehaviour
         }
         go.transform.rotation = rot;
     }
-
+    bool isJump;
     // PlayerJump
     void Jump()
     {
         if (IsGrounded)
         {
-            anim.SetBool("Jump", false); //player is on land
 
+            anim.SetBool("Jump", false); //player is on land
             if (Input.GetKeyDown(KeyCode.Space)) //player jump
             {
                 IsGrounded = false;
                 rbody.velocity = new Vector2(rbody.velocity.x, JumpPower);
                 anim.SetBool("Jump", true);
+                
+           
             }
+      
         }
     }
 
@@ -247,6 +250,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+  
     public void HitObjectOn()
     {
         hitobj.SetActive(true);
