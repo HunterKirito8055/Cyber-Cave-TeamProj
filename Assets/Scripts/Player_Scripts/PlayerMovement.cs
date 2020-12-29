@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum ComboSystem
 {
@@ -52,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Current_ComboState = ComboSystem.None;
         Current_Combo_Timer = Default_Combo_Timer;
+        
     }
 
     void FixedUpdate()
@@ -65,8 +67,9 @@ public class PlayerMovement : MonoBehaviour
         Jump();
         Walk();
         ComboAttack();
+        ComboUI();
         ResetCombo();
-
+        
 
     }
     void ComboAttack()
@@ -261,4 +264,45 @@ public class PlayerMovement : MonoBehaviour
         print("off");
         hitobj.SetActive(false);
     }
+    //Combo UI 
+    #region Combo Attack 
+
+    public Text Combohit;
+    public GameObject ComboObj;
+    public float combo_attack_ResetTimer;
+    public int combohits = 0;
+    
+    public float _Defaultcombo_attack_ResetTimer = 0.6f;
+
+    public bool ComboHasToReset;
+ 
+
+    void ComboUI()
+    {
+
+        if (combohits > 0) //combogameobject should be active if the combo is greater than 0
+        {
+            ComboObj.SetActive(true);
+        }
+
+        if (ComboHasToReset) //UICombo has to reset and disappear
+        {
+
+            combo_attack_ResetTimer -= Time.deltaTime;
+            if (combo_attack_ResetTimer <= 0f)
+            {
+                ComboHasToReset = false;
+                ComboObj.SetActive(false);
+                combohits = 0;
+                combo_attack_ResetTimer = _Defaultcombo_attack_ResetTimer;
+            }
+        }
+        if (gameObject.CompareTag("Enemy"))
+        {
+            print("ashish");
+        }
+        Combohit.text = combohits.ToString();
+    }
+
+    #endregion
 }
