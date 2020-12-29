@@ -7,16 +7,18 @@ public class BulletPrefab : MonoBehaviour
     public Transform firepoint;
     public GameObject fireprefab;
     public Transform rotatable;
-    public Transform crosshair;
 
     Vector3 mPos, sPos;
     float angle;
+    public Texture2D crosshairTexture;
     [SerializeField]
-    float offsetX=625f, offsetY=200f;
-    
+    Vector2 cursorOffset = new Vector2(58,157);
+    public void Start()
+    {       
+        Cursor.SetCursor(crosshairTexture, cursorOffset, CursorMode.Auto);
+    }
     void Update()
     {
-        crosshair.transform.rotation = Camera.main.transform.rotation;
         if (Input.GetMouseButtonDown(1))
         {
             Shoot();
@@ -26,16 +28,15 @@ public class BulletPrefab : MonoBehaviour
     }
     void Shoot()
     {
-        Instantiate(fireprefab, firepoint.position, firepoint.rotation);
+        Instantiate(fireprefab, firepoint.position, firepoint.rotation);        
     }
 
     void spawnPointRotate()
     {
-        mPos = Input.mousePosition;
-        sPos = Camera.main.WorldToScreenPoint(rotatable.localPosition);
-        var offSet = new Vector2(mPos.x - (sPos.x-offsetX), mPos.y - (sPos.y+offsetY));
-        angle = Mathf.Atan2(offSet.y, offSet.x) * Mathf.Rad2Deg;
-        rotatable.rotation = Quaternion.Euler(0,0,angle);
+
+        mPos = Input.mousePosition - Camera.main.WorldToScreenPoint(rotatable.position);
+        angle = Mathf.Atan2(mPos.y, mPos.x) * Mathf.Rad2Deg;
+        rotatable.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
     }
 
