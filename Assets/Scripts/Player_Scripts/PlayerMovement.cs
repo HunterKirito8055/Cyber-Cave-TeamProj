@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        if(IsGrounded)
         dash();
     }
 
@@ -87,19 +87,18 @@ public class PlayerMovement : MonoBehaviour
             if (Current_ComboState == ComboSystem.Attack1)
             {
                 anim.SetTrigger("PlayerAttack1");
-
+              //  hitobj.SetActive(true);
             }
             if (Current_ComboState == ComboSystem.Attack2)
             {
                 anim.SetTrigger("PlayerAttack2");
-
+              //  hitobj.SetActive(true);
 
             }
             if (Current_ComboState == ComboSystem.Attack3)
             {
                 anim.SetTrigger("PlayerAttack3");
-             
-
+              //  hitobj.SetActive(true);
             }
 
         }

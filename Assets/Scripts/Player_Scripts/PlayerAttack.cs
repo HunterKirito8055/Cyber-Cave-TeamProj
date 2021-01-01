@@ -29,15 +29,17 @@ public class PlayerAttack : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Enemy")
+        
+        if (other.tag == "Enemy" )
         {
+         
+                print("player attacked");
+            player.combohits += 1 ;
+                player.combo_attack_ResetTimer = player._Defaultcombo_attack_ResetTimer;
+                // player.ComboHasToReset = false;
+                player.ComboHasToReset = true;
             
-            print("player attacked");
-           player.combohits++;
-            
-           player.combo_attack_ResetTimer = player._Defaultcombo_attack_ResetTimer;
-            // player.ComboHasToReset = false;
-            player.ComboHasToReset = true;
+           
         }
     }
 
