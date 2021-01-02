@@ -77,9 +77,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            
-            if (Current_ComboState == ComboSystem.Attack3)
-                return;
+
+            //if (Current_ComboState == ComboSystem.Attack3)
+            //    return;
             Attacking = true;
             rbody.velocity = new Vector2(0f, rbody.velocity.y); //player should stop moving while attacking
             Current_ComboState++;
@@ -89,13 +89,13 @@ public class PlayerMovement : MonoBehaviour
                 anim.SetTrigger("PlayerAttack1");
               //  hitobj.SetActive(true);
             }
-            if (Current_ComboState == ComboSystem.Attack2)
+            else if (Current_ComboState == ComboSystem.Attack2)
             {
                 anim.SetTrigger("PlayerAttack2");
               //  hitobj.SetActive(true);
 
             }
-            if (Current_ComboState == ComboSystem.Attack3)
+            else if (Current_ComboState == ComboSystem.Attack3)
             {
                 anim.SetTrigger("PlayerAttack3");
               //  hitobj.SetActive(true);
@@ -202,11 +202,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             currentDashtime = startDashtime;
-
+          //  anim.SetTrigger("Dash");
             if (h > 0 || h < 0)
             {
                 isdashing = true;
-                anim.SetBool("Dash", true);
+                
+               
             }
         }
 
@@ -222,7 +223,7 @@ public class PlayerMovement : MonoBehaviour
                 if (currentDashtime <= 0)
                 {
                     isdashing = false;
-                    anim.SetBool("Dash", false);
+                    
                 }
             }
             else if (h < 0)
@@ -235,7 +236,7 @@ public class PlayerMovement : MonoBehaviour
                 if (currentDashtime <= 0)
                 {
                     isdashing = false;
-                    anim.SetBool("Dash", false);
+                    
                 }
             }
         }

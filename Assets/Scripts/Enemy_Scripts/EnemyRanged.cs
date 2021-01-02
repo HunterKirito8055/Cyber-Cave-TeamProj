@@ -63,5 +63,8 @@ public class EnemyRanged : MonoBehaviour
             timeBtwnShots = startTimeBtwnShots;
         }
     }
-  
+  public void ImpactShot()
+    {
+        anim.SetTrigger("Impact");
+    }
 }//class
