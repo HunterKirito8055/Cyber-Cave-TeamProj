@@ -958,6 +958,11 @@ PrefabInstance:
       propertyPath: stopBeforePlayerDist
       value: 1.6
       objectReference: {fileID: 0}
+    - target: {fileID: 4120239462426929510, guid: 604472c21b0f4b345859bf3dd6ca7ecc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 604472c21b0f4b345859bf3dd6ca7ecc, type: 3}
 --- !u!1 &662037423
@@ -1852,7 +1857,7 @@ PrefabInstance:
     - target: {fileID: 46271499658081851, guid: 590fcbdac577b994791e183ca5303261,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 590fcbdac577b994791e183ca5303261, type: 3}
