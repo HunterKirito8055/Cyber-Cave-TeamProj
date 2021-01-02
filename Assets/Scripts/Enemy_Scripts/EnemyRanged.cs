@@ -18,7 +18,7 @@ public class EnemyRanged : MonoBehaviour
     public GameObject bulletSlot;
     //public float bulletSpeed;
     public Transform player;
-    private Animator anim;
+    public Animator anim;
 
     private void Start()
     {

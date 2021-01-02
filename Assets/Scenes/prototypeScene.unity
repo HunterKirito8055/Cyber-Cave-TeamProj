@@ -2699,7 +2699,8 @@ PrefabInstance:
         type: 3}
       propertyPath: crosshair
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2379512960494533684, guid: a6a37eaf50fc1be4fb5830a6832ddc2f,
+        type: 3}
     - target: {fileID: 1788220973822067211, guid: 35b1ca56d3aa38041a92393528bffbae,
         type: 3}
       propertyPath: crosshairTexture
