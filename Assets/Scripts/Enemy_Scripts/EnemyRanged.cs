@@ -18,9 +18,11 @@ public class EnemyRanged : MonoBehaviour
     public GameObject bulletSlot;
     //public float bulletSpeed;
     public Transform player;
+    private Animator anim;
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBtwnShots = startTimeBtwnShots;
     }
@@ -43,6 +45,7 @@ public class EnemyRanged : MonoBehaviour
         if (Vector2.Distance(transform.position,player.position) < rangedDistance)
         {
             TimeToShoot();
+            
         }
        
     }
@@ -54,9 +57,14 @@ public class EnemyRanged : MonoBehaviour
         }
         else
         {
+            anim.SetTrigger("Shoot");
             Instantiate(bulletSlot, transform.position, Quaternion.identity);
+           
             timeBtwnShots = startTimeBtwnShots;
         }
     }
-  
+  public void ImpactShot()
+    {
+        anim.SetTrigger("Impact");
+    }
 }//class
