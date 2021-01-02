@@ -30,17 +30,20 @@ public class PlayerAttack : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         
-        if (other.tag == "Enemy" )
+        if (other.tag == "Enemy" || other.tag == "EnemySniper")
         {
-         
+            
                 print("player attacked");
-            player.combohits += 1 ;
+                player.combohits++;
                 player.combo_attack_ResetTimer = player._Defaultcombo_attack_ResetTimer;
                 // player.ComboHasToReset = false;
                 player.ComboHasToReset = true;
-            
-           
+
+            other.gameObject.GetComponent<EnemyRanged>().ImpactShot();
+
+
         }
+       
     }
 
     private void OnTriggerExit2D(Collider2D collision)
