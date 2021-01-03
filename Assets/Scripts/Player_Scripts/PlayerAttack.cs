@@ -61,6 +61,15 @@ public class PlayerAttack : MonoBehaviour
            
         }
 
+        if (other.tag == "EnemyDrone")
+        {
+            var c = other.GetComponent<Collider2D>();
+            var e = other.gameObject.GetComponent<eHealth_LongRanged>();
+            StartCoroutine(e.OnTriggerEnter2D(c));
+            e.OnTriggerEnter2D(c);
+
+        }
+
 
 
     }
