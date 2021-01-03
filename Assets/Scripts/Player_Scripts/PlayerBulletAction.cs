@@ -24,4 +24,6 @@ public class PlayerBulletAction : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    
 }

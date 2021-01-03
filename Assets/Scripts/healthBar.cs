@@ -5,7 +5,7 @@ using UnityEngine;
 public class healthBar : MonoBehaviour
 {
     public Transform healthBarTransform;
-    float healthCounter = 1.0f;
+    public float healthCounter = 1.0f;
     public Gradient healthGradient;
     private Renderer hbMaterial;
 
