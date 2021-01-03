@@ -177,7 +177,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5ff0555fbb768f9479cc523080e38ff4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.60938203, g: 0.8679245, b: 0.1514774, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -200,8 +200,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0901277, y: -0.15999997}
-  m_Size: {x: 0.52025545, y: 1.29}
+  m_Offset: {x: 0, y: -0.16}
+  m_Size: {x: 0.34, y: 1.29}
   m_Direction: 0
 --- !u!50 &1460080130067178449
 Rigidbody2D:
@@ -211,19 +211,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460080130067178463}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 2
   m_LinearDrag: 0.5
   m_AngularDrag: 0.1
-  m_GravityScale: 2
+  m_GravityScale: 6
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!114 &4120239462426929510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,8 +251,8 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 256
-  stopBeforePlayerDist: 1.6
-  inRangeDist: 10
+  stopBeforePlayerDist: 2
+  inRangeDist: 15
   retreatFromPlayer: 1.5
 --- !u!1 &2830183809410184715
 GameObject:

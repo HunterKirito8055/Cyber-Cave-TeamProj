@@ -7,17 +7,19 @@ public class BulletDeflect : MonoBehaviour
     Rigidbody2D rb;
     Vector3 lastvel;
     CircleCollider2D cc2d;
-    CapsuleCollider2D capsuleC2d;
-    BoxCollider2D bc2d;
+    CapsuleCollider2D capsuleC2dd;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         cc2d = GetComponent<CircleCollider2D>();
-        capsuleC2d = GetComponent<CapsuleCollider2D>();
-        bc2d = GetComponent<BoxCollider2D>();
+        capsuleC2dd = GetComponent<CapsuleCollider2D>();
     }
     private void Start()
     {
+        if (cc2d.isTrigger.Equals(false))
+        {
+            //cc2d.isTrigger = true;
+        }
     }
     private void Update()
     {
@@ -26,10 +28,7 @@ public class BulletDeflect : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Ground")
-        {
-            Destroy(gameObject);
-        }
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -37,20 +36,16 @@ public class BulletDeflect : MonoBehaviour
         {
             Debug.Log(collision.gameObject.tag);
             cc2d.isTrigger = false;
-            capsuleC2d.isTrigger = false;
-            bc2d.isTrigger = false;
+            capsuleC2dd.isTrigger = false;
             var speed = lastvel.magnitude;
-            var direction = Vector3.Reflect(new Vector2(1,1), collision.contacts[0].normal);
+            var direction = Vector3.Reflect(lastvel.normalized, collision.contacts[0].normal);
             rb.velocity = direction * Mathf.Max(speed, 0f);
 
         }
-        else if(collision.gameObject.tag == "Ground")
+        else
         {
-            Destroy(gameObject);
-        }
-        if(collision.gameObject.tag == "Ground")
-        {
-           
+            cc2d.isTrigger = true;
+            capsuleC2dd.isTrigger = true;
         }
     }
 }
