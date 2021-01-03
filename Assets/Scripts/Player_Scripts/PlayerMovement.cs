@@ -262,7 +262,7 @@ public class PlayerMovement : MonoBehaviour
     public void HitObjectOff()
     {
         print("off");
-        hitobj.SetActive(false);
+       hitobj.SetActive(false);
     }
     //Combo UI 
     #region Combo Attack 
