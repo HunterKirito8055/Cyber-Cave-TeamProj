@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class eHealth_LongRanged : MonoBehaviour
+public class eHealth_Drone : MonoBehaviour
 {
     public float eHealthCounter = 1.0f;
     public bool recieveDamage = true;
@@ -15,20 +15,18 @@ public class eHealth_LongRanged : MonoBehaviour
 
 
     public IEnumerator OnTriggerEnter2D(Collider2D collision)
-    {        
+    {
         if (collision.gameObject.tag == "playerObj")
         {
-            if (eHealthCounter > 0 && recieveDamage == true)
-            {
-                anim.SetTrigger("Impact");
-                eHealthCounter -= 0.20f;
-            }
-            else if (eHealthCounter <= 0 && recieveDamage == true)
+            
+                eHealthCounter -= 1.2f;
+            
+            if (eHealthCounter <= 0 && recieveDamage == true)
             {
                 recieveDamage = false;
-                gameObject.GetComponent<EnemyRanged>().enabled = false;
-                anim.SetTrigger("Die");
-                yield return new WaitForSeconds(2f);
+                //gameObject.GetComponent<EnemyRanged>().enabled = false;
+                anim.SetTrigger("droneDie");
+                yield return new WaitForSeconds(1f);
                 Destroy(gameObject);
             }
         }

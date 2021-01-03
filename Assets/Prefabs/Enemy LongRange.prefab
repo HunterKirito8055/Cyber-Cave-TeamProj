@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 46271499658081847}
   - component: {fileID: 46271499658081845}
   - component: {fileID: 1829767394}
+  - component: {fileID: 2131895438}
   m_Layer: 0
   m_Name: Enemy LongRange
   m_TagString: EnemySniper
@@ -167,6 +168,22 @@ MonoBehaviour:
   bulletSlot: {fileID: 8153698417809602253, guid: 9e7c5ecab221e4a4cbc07b035e481f2c,
     type: 3}
   player: {fileID: 0}
+  anim: {fileID: 0}
+--- !u!114 &2131895438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46271499658081851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 417c4b99c9cbe4b439dc4e6d69ba4f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eHealthCounter: 1
+  recieveDamage: 1
+  anim: {fileID: 0}
 --- !u!1 &46271501305882274
 GameObject:
   m_ObjectHideFlags: 0

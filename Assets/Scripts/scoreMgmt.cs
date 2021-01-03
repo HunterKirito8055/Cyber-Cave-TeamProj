@@ -24,18 +24,39 @@ public class scoreMgmt : MonoBehaviour
             
             if ((hb.healthBarTransform.localScale.x > 0.01f)&& recieveDamage == true)
             {
-                collision.gameObject.SetActive(false);
+                Destroy(collision.gameObject);
                 hb.setBarSize(attackStrength);
                 anim.SetTrigger("Impact");
             }
 
-            if (hb.healthBarTransform.localScale.x <= 0.01f && recieveDamage == true)
+            if (hb.healthBarTransform.localScale.x <= 0.1f && recieveDamage == true)
             {
                 recieveDamage = false;
                 anim.SetTrigger("Death");
             }
 
         }
+
+        //Drone
+        if (collision.gameObject.tag == "droneObj")
+        {
+
+
+            if ((hb.healthBarTransform.localScale.x > 0.01f) && recieveDamage == true)
+            {                
+                hb.setBarSize(attackStrength);
+                anim.SetTrigger("Impact");
+            }
+
+            if (hb.healthBarTransform.localScale.x <= 0.1f && recieveDamage == true)
+            {
+                recieveDamage = false;
+                anim.SetTrigger("Death");
+            }
+
+        }
+
+
 
         //collectibles
         if (collision.gameObject.tag == "collectibleHealth")
