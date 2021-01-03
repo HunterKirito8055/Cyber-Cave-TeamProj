@@ -16,8 +16,8 @@ public class EnemyBulletScript : MonoBehaviour
         enemy = GameObject.FindGameObjectWithTag("EnemySniper").transform;
         direction = player.position - enemy.position;
         radians = Mathf.Atan2(direction.y,direction.x);
-        angle = radians * (180 / Mathf.PI);
-        print(angle);
+        angle = radians * Mathf.Rad2Deg;
+      
        // transform.RotateAround(transform.position, Vector3.forward, angle);
      //  gameObject.transform.RotateAroundLocal(Vector3.forward, angle);
        // transform.RotateAround(Vector3.forward, angle);

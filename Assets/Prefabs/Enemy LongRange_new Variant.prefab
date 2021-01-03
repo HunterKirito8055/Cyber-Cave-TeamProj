@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1829767394, guid: 590fcbdac577b994791e183ca5303261, type: 3}
+      propertyPath: bulletSpawnPosition
+      value: 
+      objectReference: {fileID: 1745988668955822828}
     - target: {fileID: 46271499658081842, guid: 590fcbdac577b994791e183ca5303261,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,5 +71,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy LongRange_new
       objectReference: {fileID: 0}
+    - target: {fileID: 46271501305882274, guid: 590fcbdac577b994791e183ca5303261,
+        type: 3}
+      propertyPath: m_Name
+      value: SpawnPosition
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 590fcbdac577b994791e183ca5303261, type: 3}
+--- !u!4 &1745988668955822828 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 46271501305882275, guid: 590fcbdac577b994791e183ca5303261,
+    type: 3}
+  m_PrefabInstance: {fileID: 1774027784628710479}
+  m_PrefabAsset: {fileID: 0}

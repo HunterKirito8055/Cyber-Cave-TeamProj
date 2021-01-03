@@ -28,11 +28,12 @@ public class EnemyMotor : MonoBehaviour
 
 
     [SerializeField]
-    bool _isfollowPlayer, _attackPlayer = false; //if player is in enemy range, then chase after him
+    bool _isfollowPlayer = false; //if player is in enemy range, then chase after him
 
 
     public Transform GroundDetect;
     public LayerMask GroundLayer;
+    float yPos;
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -50,14 +51,15 @@ public class EnemyMotor : MonoBehaviour
         rigid.velocity = new Vector2(MoveSpeed, rigid.velocity.y);
 
         _isfollowPlayer = false;
-
-        Debug.Log(LeftMaxPos);
-        Debug.Log(RightMaxPos);
+        yPos = transform.position.y;
+        
+        //Debug.Log(LeftMaxPos);
+        //Debug.Log(RightMaxPos);
 
     }
     void Update()
     {
-        
+        transform.position = new Vector2(transform.position.x, yPos);
         CheckGround();
 
         IsAlive();
@@ -72,9 +74,6 @@ public class EnemyMotor : MonoBehaviour
         if (isOnGround)
         {
             CheckisInRangeOrNot();
-            // isOnGround = true;
-
-            // Debug.Log("on ground");
         }
         else
         {
@@ -210,13 +209,9 @@ public class EnemyMotor : MonoBehaviour
             else if (distanceFromPlayer < stopBeforePlayerDist && distanceFromPlayer > retreatFromPlayer /*|| distanceFromPlayer > inRangeDist*/)
             {
                 //stopping position
-                // transform.position = this.transform.position;
                 rigid.velocity = new Vector2(0, 0);
-                //attack
-                //anim.SetInteger("Speed", 0);
-               // anim.Play("Enemy Idle");
-               if(rigid.velocity.x == 0)
-                anim.SetTrigger("EnemyMelee");
+                if (rigid.velocity.x == 0)
+                    EnemyAttackMelee();
             }
             else if (distanceFromPlayer < retreatFromPlayer) // move away from player
             {
@@ -244,7 +239,7 @@ public class EnemyMotor : MonoBehaviour
             //LeftMaxPos = transform.position.x - OffsetToLeft;
             //RightMaxPos = transform.position.x + OffsetToRight;
         }
-        else if (distanceFromPlayer < inRangeDist + RightMaxPos)
+        else if (distanceFromPlayer < inRangeDist + (transform.rotation.y ==0?RightMaxPos:LeftMaxPos))
         { 
             _isfollowPlayer = true;
             ChasePlayerInRange();
@@ -261,8 +256,7 @@ public class EnemyMotor : MonoBehaviour
         {
             anim.SetTrigger("EnemyMelee");
         }
-        else
-            _attackPlayer = false;
+       
     }//melee attack enemy'
 
     void EnemyLaserAttack()
