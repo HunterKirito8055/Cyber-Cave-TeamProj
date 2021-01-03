@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -132,6 +132,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyFireBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153698417809602253, guid: 9e7c5ecab221e4a4cbc07b035e481f2c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8153698417809602262, guid: 9e7c5ecab221e4a4cbc07b035e481f2c,
         type: 3}
@@ -765,6 +770,11 @@ PrefabInstance:
       propertyPath: retreatDistance
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1829767394, guid: 590fcbdac577b994791e183ca5303261, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 4704998795760002564, guid: 5a128d3d64c198a43a83b6ffa0f8b1dc,
+        type: 3}
     - target: {fileID: 46271499658081842, guid: 590fcbdac577b994791e183ca5303261,
         type: 3}
       propertyPath: m_LocalPosition.x
