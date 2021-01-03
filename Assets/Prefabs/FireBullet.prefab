@@ -93,7 +93,6 @@ GameObject:
   - component: {fileID: 6805668935849932907}
   - component: {fileID: 6805668935849932906}
   - component: {fileID: 6805668935849932822}
-  - component: {fileID: 6805668935849932821}
   - component: {fileID: 6805668935849932823}
   - component: {fileID: 1150555635546949749}
   - component: {fileID: 4128261193981964293}
@@ -209,17 +208,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!247 &6805668935849932821
-ConstantForce2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6805668935849932905}
-  m_Enabled: 1
-  m_Force: {x: 0, y: 0}
-  m_RelativeForce: {x: 0, y: 0}
-  m_Torque: 0
 --- !u!58 &6805668935849932823
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -229,7 +217,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 6805668935849932905}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 79cdf95f07cfd3749ac4ed02296cbb09, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
