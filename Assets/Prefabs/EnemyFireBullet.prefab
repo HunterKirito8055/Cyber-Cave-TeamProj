@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8153698417809602254}
   m_Layer: 0
   m_Name: EnemyFireBullet
-  m_TagString: FireBullet
+  m_TagString: enemyObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,10 +156,10 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8153698417809602253}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.05, y: -0.0012192942}
@@ -175,9 +175,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8153698418466092510}
   - component: {fileID: 8153698418466092511}
+  - component: {fileID: 193187824862008636}
   m_Layer: 0
   m_Name: Sprite Image
-  m_TagString: Untagged
+  m_TagString: enemyObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,3 +247,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &193187824862008636
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8153698418466092509}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.05, y: -0.0012192942}
+  m_Size: {x: 0.96, y: 0.06}
+  m_Direction: 1

@@ -17,6 +17,8 @@ TagManager:
   - EnemySniper
   - Scorecollectible
   - player
+  - playerObj
+  - droneObj
   layers:
   - Default
   - TransparentFX
