@@ -11,19 +11,14 @@ public class EnemyRanged : MonoBehaviour
     public float stoppingDistance;
     public float rangedDistance;
     public float retreatDistance;
-    public float startTimeBtwnShots = 2f;
+    public float startTimeBtwnShots;
     [SerializeField]
     private float timeBtwnShots;
 
-    public GameObject bulletPrefab;
-    public Transform bulletPoint;
-    public Transform bulletRotation;
+    public GameObject bulletSlot;
     //public float bulletSpeed;
     public Transform player;
     public Animator anim;
-
-    public Vector3 dirVector;
-    public float angle;
 
     private void Start()
     {
@@ -34,23 +29,23 @@ public class EnemyRanged : MonoBehaviour
 
     private void Update()
     {
-        if (Vector2.Distance(transform.position, player.position) > stoppingDistance && Vector2.Distance(transform.position, player.position) < rangedDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-        }
-        else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
-        {
-            transform.position = this.transform.position;
-        }
-        else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
-        }
+        //if (Vector2.Distance(transform.position, player.position) > stoppingDistance && Vector2.Distance(transform.position, player.position) < rangedDistance)
+        //{
+        //    transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        //}
+        //else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
+        //{
+        //    transform.position = this.transform.position;
+        //}
+        //else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
+        //{
+        //    transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+        //}
 
         if (Vector2.Distance(transform.position,player.position) < rangedDistance)
         {
             TimeToShoot();
-            RotateBullet();
+            
         }
        
     }
@@ -62,27 +57,13 @@ public class EnemyRanged : MonoBehaviour
         }
         else
         {
-            timeBtwnShots = startTimeBtwnShots;
             anim.SetTrigger("Shoot");
-            Shoot();
-            
+            Instantiate(bulletSlot, transform.position, Quaternion.identity);
+           
+            timeBtwnShots = startTimeBtwnShots;
         }
     }
-    void Shoot()
-    {
-        Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
-    }
-    void RotateBullet()
-    {
-        dirVector = player.transform.position - bulletPoint.position;
-        angle = Mathf.Atan2(dirVector.y, dirVector.x) * Mathf.Rad2Deg;
-        bulletRotation.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawRay(bulletPoint.transform.position, dirVector* 3f);
-    }
-    public void ImpactShot()
+  public void ImpactShot()
     {
         anim.SetTrigger("Impact");
     }
