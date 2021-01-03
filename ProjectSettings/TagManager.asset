@@ -18,6 +18,7 @@ TagManager:
   - Scorecollectible
   - player
   - playerObj
+  - droneObj
   layers:
   - Default
   - TransparentFX
