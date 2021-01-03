@@ -2077,6 +2077,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Melee_new
       objectReference: {fileID: 0}
+    - target: {fileID: 2154483255847376820, guid: 47b0f4c723b39574a9d4697f80d7317c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154483255847376826, guid: 47b0f4c723b39574a9d4697f80d7317c,
+        type: 3}
+      propertyPath: m_Simulated
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2154483255847376829, guid: 47b0f4c723b39574a9d4697f80d7317c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2137,6 +2147,11 @@ PrefabInstance:
       propertyPath: playerTarget
       value: 
       objectReference: {fileID: 1092908522}
+    - target: {fileID: 3498025639884954893, guid: 47b0f4c723b39574a9d4697f80d7317c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47b0f4c723b39574a9d4697f80d7317c, type: 3}
 --- !u!1 &1460080128285516717 stripped
@@ -2251,6 +2266,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy LongRange_new
+      objectReference: {fileID: 0}
+    - target: {fileID: 1745988670519745140, guid: 252088f8bf3a5d546b894d02828a3a76,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1745988670519745149, guid: 252088f8bf3a5d546b894d02828a3a76,
         type: 3}
