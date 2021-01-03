@@ -4,26 +4,41 @@ using UnityEngine;
 
 public class PlayerBulletAction : MonoBehaviour
 {
-    public float speed = 10f;
-    public Rigidbody2D rb;
+    public Transform firepoint;
+    public GameObject fireprefab;
+    public Transform rotatable;
 
-    private void Start()
+    Vector3 mPos;
+    float angle;
+    public Texture2D crosshairTexture;
+    [SerializeField]
+    Vector2 cursorOffset = new Vector2(58,157);
+    public void Start()
+    {       
+        Cursor.SetCursor(crosshairTexture, cursorOffset, CursorMode.Auto);
+    }
+    void Update()
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.right * speed;
-        StartCoroutine(DisableFire(2f));
+        if (Input.GetMouseButtonDown(1))
+        {
+            spawnPointRotate();
+            Shoot();
+        }
+
+       // spawnPointRotate();
+    }
+    void Shoot()
+    {
+        Instantiate(fireprefab, firepoint.position, firepoint.rotation);        
     }
 
-    IEnumerator DisableFire(float t)
+    void spawnPointRotate()
     {
-        yield return new WaitForSeconds(t);
-        gameObject.SetActive(false);
-        Destroy();
-    }
-    void Destroy()
-    {
-        Destroy(gameObject);
+
+        mPos = Input.mousePosition - Camera.main.WorldToScreenPoint(rotatable.position);
+        angle = Mathf.Atan2(mPos.y, mPos.x) * Mathf.Rad2Deg;
+        rotatable.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
     }
 
-    
 }
