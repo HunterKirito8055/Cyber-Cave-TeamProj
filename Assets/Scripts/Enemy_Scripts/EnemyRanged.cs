@@ -12,13 +12,16 @@ public class EnemyRanged : MonoBehaviour
     public float rangedDistance;
     public float retreatDistance;
     public float startTimeBtwnShots;
-    [SerializeField]
     private float timeBtwnShots;
 
     public GameObject bulletSlot;
+    public Transform bulletSpawnPosition;
+    public Transform SpawnRotation;
     //public float bulletSpeed;
     public Transform player;
     public Animator anim;
+    Vector2 directionForBullet;
+    float angle;
 
     private void Start()
     {
@@ -45,7 +48,7 @@ public class EnemyRanged : MonoBehaviour
         if (Vector2.Distance(transform.position,player.position) < rangedDistance)
         {
             TimeToShoot();
-            
+            RotateBullet();
         }
        
     }
@@ -58,12 +61,23 @@ public class EnemyRanged : MonoBehaviour
         else
         {
             anim.SetTrigger("Shoot");
-            Instantiate(bulletSlot, transform.position, Quaternion.identity);
-           
+
+            Shoot();
             timeBtwnShots = startTimeBtwnShots;
         }
     }
-  public void ImpactShot()
+    void RotateBullet()
+    {
+        directionForBullet = player.position - transform.position; 
+        angle = Mathf.Atan2(directionForBullet.y, directionForBullet.x) * Mathf.Rad2Deg;
+        SpawnRotation.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    void Shoot()
+    {
+        Instantiate(bulletSlot, bulletSpawnPosition.position, bulletSpawnPosition.rotation);
+    }
+    public void ImpactShot()
     {
         anim.SetTrigger("Impact");
     }
