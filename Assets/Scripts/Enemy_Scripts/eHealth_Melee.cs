@@ -21,14 +21,14 @@ public class eHealth_Melee : MonoBehaviour
         {
             if (eHealthCounter > 0 && recieveDamage == true)
             {
-                //anim.SetTrigger("Impact");
+                anim.SetTrigger("Impact");
                 eHealthCounter -= 0.40f;
             }
             else if (eHealthCounter <= 0 && recieveDamage == true)
             {
                 recieveDamage = false;
                 gameObject.GetComponent<EnemyMotor>().enabled = false;
-                //anim.SetTrigger("Die");
+                anim.SetTrigger("Die");
                 yield return new WaitForSeconds(2f);
                 Destroy(gameObject);
             }

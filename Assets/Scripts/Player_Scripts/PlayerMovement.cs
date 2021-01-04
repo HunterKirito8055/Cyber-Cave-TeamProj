@@ -12,7 +12,7 @@ public enum ComboSystem
 };
 public class PlayerMovement : MonoBehaviour
 {
-    public PlayerAttack playerattack;
+    public EnemyAttackMelee playerattack;
     public float movespeed = 5f;
     public float JumpPower = 5f;
     // public float dashtime = 100f;
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        playerattack = GetComponentInChildren<PlayerAttack>();
+        playerattack = GetComponentInChildren<EnemyAttackMelee>();
 
     }
     private void Start()

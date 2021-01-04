@@ -19,6 +19,7 @@ TagManager:
   - player
   - playerObj
   - droneObj
+  - enemysword
   layers:
   - Default
   - TransparentFX

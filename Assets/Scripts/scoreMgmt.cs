@@ -36,7 +36,15 @@ public class scoreMgmt : MonoBehaviour
             }
 
         }
-
+        if(collision.gameObject.tag == "enemysword")
+        {
+            if ((hb.healthBarTransform.localScale.x > 0.01f) && recieveDamage == true)
+            {
+               
+                hb.setBarSize(attackStrength);
+                anim.SetTrigger("Impact");
+            }
+        }
         //Drone
         if (collision.gameObject.tag == "droneObj")
         {

@@ -124,11 +124,11 @@ public class EnemyMotor : MonoBehaviour
         //else
         //{
 
-            //    _isfollowPlayer = false;
-            //    LeftMaxPos = transform.position.x - OffsetToLeft;
-            //    RightMaxPos = transform.position.x + OffsetToRight;
-            //}
-
+        //    _isfollowPlayer = false;
+        //    LeftMaxPos = transform.position.x - OffsetToLeft;
+        //    RightMaxPos = transform.position.x + OffsetToRight;
+        //}
+        anim.SetInteger("Speed", Mathf.Abs((int)rigid.velocity.x));
     }//patrol
 
     float distanceFromPlayer;
@@ -258,9 +258,12 @@ public class EnemyMotor : MonoBehaviour
         }
        
     }//melee attack enemy'
-
-    void EnemyLaserAttack()
+    public GameObject sword;
+    public void SwordOn()
     {
-
+        sword.SetActive(true);
+    } public void SwordOff()
+    {
+        sword.SetActive(false);
     }
 }//class
