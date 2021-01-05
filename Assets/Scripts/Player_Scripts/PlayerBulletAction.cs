@@ -25,5 +25,12 @@ public class PlayerBulletAction : MonoBehaviour
         Destroy(gameObject);
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Ground")
+        {
+            gameObject.SetActive(false);
+            Object.Destroy(gameObject, 0.1f);
+        }
+    }
 }

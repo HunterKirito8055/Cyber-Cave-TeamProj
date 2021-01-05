@@ -52,7 +52,7 @@ public class scoreMgmt : MonoBehaviour
 
             if ((hb.healthBarTransform.localScale.x > 0.01f) && recieveDamage == true)
             {                
-                hb.setBarSize(attackStrength);
+                hb.setBarSize(0.075f);
                 anim.SetTrigger("Impact");
             }
 

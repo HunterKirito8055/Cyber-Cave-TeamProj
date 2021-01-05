@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6490075291686320744
+--- !u!1 &177654680656824533
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,123 +8,63 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6490075291686320662}
-  - component: {fileID: 6490075291686320663}
+  - component: {fileID: 4676190001336154606}
+  - component: {fileID: 6966054494380614535}
+  - component: {fileID: 5678283080225898718}
   m_Layer: 0
-  m_Name: A_
+  m_Name: drone_neww
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6490075291686320662
+--- !u!4 &4676190001336154606
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6490075291686320744}
+  m_GameObject: {fileID: 177654680656824533}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.98, y: -1.54, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6490075292301387282}
+  - {fileID: 4838590297875970813}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6490075291686320663
+--- !u!65 &6966054494380614535
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177654680656824533}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20.427227, y: 8.338448, z: 1}
+  m_Center: {x: 9.7136135, y: -0.9828272, z: 0}
+--- !u!114 &5678283080225898718
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6490075291686320744}
+  m_GameObject: {fileID: 177654680656824533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Script: {fileID: 11500000, guid: addc435ce9f5ffb40bb349da9aa46d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 1
-  data:
-    dataString: UEsDBBQAAAgIAMArIezdpZVkbwIAABUFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVEtzmzAQ/isenWsP4Efs3lriOD3kMXU7uXCRpcVoDBKjR2wn4//elQBDXC6Ib/fb/fYhPomQpgZmld5owZ8UB/J9RPyZfBv1xkc40b2SW/EBnc+b4LbwTjT4/KZWKMRjTzOqAqsF+yH3pXeOEHRS5EpXa76HVBlrEM5paQBNWlnPlgh9jsgJX+OVp5zxlNz50weeVtHogkcG0oLuXaNJFK3wmU7jlhIjkqxmy3nSMhuik6ykVQ3cV9Hz4y7T3WQe/CQW2LpEk7nPqMpSmFYfsec61J/S2jisDh24oFhvEOU1FCD2hfXah+SXPDdg22Zoer4XGtvWRCU/VdPLippDI+2dls7nSeaLoKoJ+vSffRwHc65V9djljSOfwxaCHX7TM6PGDpo9hO+/CnfySMsD3ZXwVoB8VhutnORotNp5qjOQ3Pef19LSAtihxxupN6CrByPrZjuZLmfxcjFdrMfRXTssX9AltOKUlqLahTHMGmBbqtD8sB2gcVC/UH3YHdPGRdRL+mvgD90Pl6w1PAhtLJrakqXXulNOe1eyDg30pTmbKi0hwG0FNUha2vMrhrG387yxDdLeWB6ov05t8tbW3ZIbSoB7/yi6Mb2q43VyplDHJzDFi7OlkNCL9oZn7FOqpGzWbdiTjrZ1OqdsQNs7wb/uGdnNKeyWyXSxnC/4Lo/GHKazhDG62CUR45yRsIhCYp20fG2Etu3Bqck+uMSl6/4yo42mdVh9rulxIz4qNWi5kLnaMg0gX5oIV+GgMQleUr7mAhu0BWuFDPMmnxkpFTsAz66BslDp+mQ1zfooGanFu7IeyUgafisZuZDLP1BLAwQUAAAICADAKyHsQe7OzG0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNVRUEovSizIKAaKGII4pZkpIHa0UpJpYmqShZGxmYWpWUpSmoFuSqqxiVFycqJZkpFBckpKslIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICADAKyHs3aWVZG8CAAAVBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICADAKyHsQe7OzG0AAAB4AAAACQAkAAAAAAAAAAAAAAC8AgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAHQDAAAAAA==
-    upgradeData: 
-    file_cachedStartup: {fileID: 0}
-    data_cachedStartup: 
-    cacheStartup: 0
-  showNavGraphs: 1
-  showUnwalkableNodes: 1
-  debugMode: 0
-  debugFloor: 0
-  debugRoof: 1
-  manualDebugFloorRoof: 0
-  showSearchTree: 0
-  unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
-  maxNearestNodeDistance: 100
-  scanOnStartup: 1
-  fullGetNearestSearch: 0
-  prioritizeGraphs: 0
-  prioritizeGraphsLimit: 1
-  colorSettings:
-    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
-    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
-    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
-    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
-    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
-    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
-    _AreaColors:
-    - {r: 0, g: 0, b: 0, a: 0}
-  tagNames:
-  - Basic Ground
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
-  - 9
-  - 10
-  - 11
-  - 12
-  - 13
-  - 14
-  - 15
-  - 16
-  - 17
-  - 18
-  - 19
-  - 20
-  - 21
-  - 22
-  - 23
-  - 24
-  - 25
-  - 26
-  - 27
-  - 28
-  - 29
-  - 30
-  - 31
-  heuristic: 2
-  heuristicScale: 1
-  threadCount: 1
-  maxFrameTime: 10
-  batchGraphUpdates: 0
-  graphUpdateBatchingInterval: 0.2
-  euclideanEmbedding:
-    mode: 0
-    seed: 0
-    pivotPointRoot: {fileID: 0}
-    spreadOutCount: 1
-  showGraphs: 1
---- !u!1001 &3827623818543009520
+  drone: {fileID: 4838590297875970811}
+--- !u!1001 &3182130410111963679
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 6490075291686320662}
+    m_TransformParent: {fileID: 4676190001336154606}
     m_Modifications:
     - target: {fileID: 8002635416664369378, guid: 8b669db07eec3c44fb7b0309941c6aaf,
         type: 3}
@@ -186,11 +126,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drone
       objectReference: {fileID: 0}
+    - target: {fileID: 8002635416664369380, guid: 8b669db07eec3c44fb7b0309941c6aaf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b669db07eec3c44fb7b0309941c6aaf, type: 3}
---- !u!4 &6490075292301387282 stripped
+--- !u!1 &4838590297875970811 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8002635416664369380, guid: 8b669db07eec3c44fb7b0309941c6aaf,
+    type: 3}
+  m_PrefabInstance: {fileID: 3182130410111963679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4838590297875970813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8002635416664369378, guid: 8b669db07eec3c44fb7b0309941c6aaf,
     type: 3}
-  m_PrefabInstance: {fileID: 3827623818543009520}
+  m_PrefabInstance: {fileID: 3182130410111963679}
   m_PrefabAsset: {fileID: 0}

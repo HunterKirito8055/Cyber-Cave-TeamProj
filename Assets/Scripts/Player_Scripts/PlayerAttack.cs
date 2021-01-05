@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class EnemyAttackMelee : MonoBehaviour
+public class PlayerAttack : MonoBehaviour
 {
 
     public PlayerMovement player;
@@ -41,7 +41,6 @@ public class EnemyAttackMelee : MonoBehaviour
                 // player.ComboHasToReset = false;
                 player.ComboHasToReset = true;
 
-            other.gameObject.GetComponent<EnemyRanged>().ImpactShot();
         }
 
         if(other.tag=="Enemy")

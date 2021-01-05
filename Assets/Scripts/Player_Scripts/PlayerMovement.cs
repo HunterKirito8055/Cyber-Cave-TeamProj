@@ -12,7 +12,7 @@ public enum ComboSystem
 };
 public class PlayerMovement : MonoBehaviour
 {
-    public EnemyAttackMelee playerattack;
+    public PlayerAttack playerattack;
     public float movespeed = 5f;
     public float JumpPower = 5f;
     // public float dashtime = 100f;
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        playerattack = GetComponentInChildren<EnemyAttackMelee>();
+        playerattack = GetComponentInChildren<PlayerAttack>();
 
     }
     private void Start()
@@ -263,6 +263,10 @@ public class PlayerMovement : MonoBehaviour
     {
         print("off");
        hitobj.SetActive(false);
+    }
+    public void Spell()
+    {
+        anim.SetTrigger("Spell");
     }
     //Combo UI 
     #region Combo Attack 

@@ -22,6 +22,7 @@ public class BulletPrefab : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             Shoot();
+            GetComponent<PlayerMovement>().Spell();
         }
 
         spawnPointRotate();

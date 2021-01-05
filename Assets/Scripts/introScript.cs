@@ -24,7 +24,7 @@ public class introScript : MonoBehaviour
         
         //Debug.Log(i);
         if (i >= frames.Length-1)
-            SceneManager.LoadScene("prototypeScene");
+            SceneManager.LoadScene("LEVEL001");
 
 
         

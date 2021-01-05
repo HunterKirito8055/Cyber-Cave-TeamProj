@@ -7,10 +7,12 @@ public class eHealth_Melee : MonoBehaviour
     public float eHealthCounter = 1.0f;
     public bool recieveDamage = true;
     public Animator anim;
+    public AudioSource death;
 
     public void Start()
     {
        anim = GetComponent<Animator>();
+        death = GetComponent<AudioSource>();
     }
 
     public IEnumerator OnTriggerEnter2D(Collider2D collision)
@@ -22,13 +24,14 @@ public class eHealth_Melee : MonoBehaviour
             if (eHealthCounter > 0 && recieveDamage == true)
             {
                 anim.SetTrigger("Impact");
-                eHealthCounter -= 0.40f;
+                eHealthCounter -= 0.50f;
             }
             else if (eHealthCounter <= 0 && recieveDamage == true)
             {
                 recieveDamage = false;
                 gameObject.GetComponent<EnemyMotor>().enabled = false;
                 anim.SetTrigger("Die");
+                death.Play();
                 yield return new WaitForSeconds(2f);
                 Destroy(gameObject);
             }

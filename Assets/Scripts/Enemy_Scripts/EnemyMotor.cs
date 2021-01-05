@@ -203,7 +203,7 @@ public class EnemyMotor : MonoBehaviour
                 
                 transform.position = Vector2.MoveTowards(currentpos, playerTarget.position, MoveSpeed * Time.deltaTime);
                 anim.SetInteger("Speed", Mathf.Abs((int)rigid.velocity.x));
-                anim.Play("Walk");
+                
             }
         
             else if (distanceFromPlayer < stopBeforePlayerDist && distanceFromPlayer > retreatFromPlayer /*|| distanceFromPlayer > inRangeDist*/)
@@ -217,7 +217,7 @@ public class EnemyMotor : MonoBehaviour
             {
                 transform.position = Vector2.MoveTowards(currentpos, playerTarget.position, -MoveSpeed * Time.deltaTime);
                 anim.SetInteger("Speed", Mathf.Abs((int)rigid.velocity.x));
-                anim.Play("EnemyWalk");
+                
             }
            
 
@@ -251,7 +251,7 @@ public class EnemyMotor : MonoBehaviour
     }
     void EnemyAttackMelee()
     {
-        print("attack");
+       
         if (rigid.velocity.sqrMagnitude == 0)
         {
             anim.SetTrigger("EnemyMelee");
