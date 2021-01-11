@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1840,10 +1840,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'HE WILL DEFEAT HIS BROTHER AND RESCUE HIS FATHER AND THE CAVE IS GOING
-    TO COLLAPSE.
+  m_text: 'HE WILL DEFEAT HIS BROTHER AND RESCUE HIS FATHER AND THE CAVE IS COLLAPSING.
 
-    HE WILL TRY TO SAVE HIS BROTHER BUT HE ESCAPES.'
+    HE
+    WILL TRY TO SAVE HIS BROTHER BUT HE ESCAPES.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4f2fe7a2c76901843b91e1cd5e6c7b4e, type: 2}
   m_sharedMaterial: {fileID: -8606590921289713249, guid: 4f2fe7a2c76901843b91e1cd5e6c7b4e,
